@@ -34,14 +34,7 @@ This setup includes configuration files for the following tools:
 
 ### Alacritty
 
-The Alacritty configuration includes customizations for appearance, font, and keybindings. After setup, ensure your font is set to **JetBrainsMono Nerd Font**. You can adjust the font size in `alacritty.yml`.
-
-```yaml
-font:
-  normal:
-    family: "JetBrainsMono Nerd Font"
-    size: 11.0
-```
+The Alacritty configuration includes customizations for appearance, font, and keybindings. After setup, ensure your font is set to **JetBrainsMono Nerd Font**. You can adjust the font size in `alacritty.toml`.
 
 ### tmux
 
