@@ -48,5 +48,5 @@ fc-cache -fv
 # Set Zsh as the default shell
 chsh -s $(which zsh)
 
-echo "Setup complete! Please restart your terminal and set your terminal font to 'JetBrainsMono Nerd Font'."
+echo "Setup complete! Don't forget to log out and log back in and make sure everything is correctly setup!" 
 
