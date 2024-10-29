@@ -3,7 +3,7 @@
 # Install necessary packages
 echo "Installing required packages..."
 sudo apt update
-sudo apt install -y alacritty tmux neovim zsh git unzip curl zoxide
+sudo apt install -y alacritty tmux neovim zsh git unzip curl zoxide htop
 
 # Install fzf for fuzzy finding in the shell
 cd $HOME
