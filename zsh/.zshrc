@@ -1,4 +1,6 @@
-if [ "$TMUX" = "" ]; then tmux; fi
+if [ "$TMUX" = "" ]; 
+  then tmux new -As0;
+fi
 
 #Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -75,6 +77,8 @@ alias ls='ls --color'
 alias c='clear'
 alias ll='ls -color -l'
 alias vim='nvim'
+# This command acts so that if there is already a command with the default name, it attaches instead of creating a new one
+alias tmux='tmux new -As0'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Shell integrations
