@@ -6,7 +6,6 @@ sudo apt update
 sudo apt install -y alacritty tmux neovim zsh git unzip curl zoxide htop
 
 # Install fzf for fuzzy finding in the shell
-cd $HOME
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
