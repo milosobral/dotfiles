@@ -3,7 +3,11 @@
 # Install necessary packages
 echo "Installing required packages..."
 sudo apt update
-sudo apt install -y alacritty tmux neovim zsh git unzip curl
+sudo apt install -y alacritty tmux neovim zsh git unzip curl zoxide htop
+
+# Install fzf for fuzzy finding in the shell
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 # Install Powerlevel10k theme
 if [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
@@ -13,12 +17,16 @@ fi
 
 # Symlink configuration files
 echo "Creating symlinks for configuration files..."
-
-ln -sf $PWD/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
-ln -sf $PWD/nvim/init.lua $HOME/.config/nvim/init.lua
-ln -sf $PWD/tmux/.tmux.conf $HOME/.tmux.conf
+mkdir $HOME/.config/alacritty
+mkdir $HOME/.config/nvim
+cp $PWD/alacritty/alacritty.toml $HOME/.config/alacritty/alacritty.toml
+cp -r $PWD/nvim/* $HOME/.config/nvim/
+cp $PWD/tmux/.tmux.conf $HOME/.tmux.conf
 ln -sf $PWD/zsh/.zshrc $HOME/.zshrc
 ln -sf $PWD/.p10k.zsh $HOME/.p10k.zsh
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
 
 # Install JetBrainsMono Nerd Font
 FONT_DIR="$HOME/.local/share/fonts"
@@ -39,5 +47,5 @@ fc-cache -fv
 # Set Zsh as the default shell
 chsh -s $(which zsh)
 
-echo "Setup complete! Please restart your terminal and set your terminal font to 'JetBrainsMono Nerd Font'."
+echo "Setup complete! Don't forget to log out and log back in and make sure everything is correctly setup!" 
 
