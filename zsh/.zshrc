@@ -1,6 +1,4 @@
-if [ "$TMUX" = "" ]; 
-  then tmux new -As0;
-fi
+if [ "$TMUX" = "" ]; then tmux; fi
 
 #Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -11,7 +9,7 @@ fi
 
 export PATH="/home/milo/.local/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
-export PATH="/usr/local/cuda-12.6/bin:$PATH"
+export PATH=$PATH:/home/milo/miniconda3/bin
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -72,21 +70,32 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Setting the default editor 
-export VISUAL=vim
-export EDITOR="$VISUAL"
-
 # Aliases
 alias ls='ls --color'
 alias c='clear'
 alias ll='ls -color -l'
 alias vim='nvim'
-# This command acts so that if there is already a command with the default name, it attaches instead of creating a new one
-alias tmux='tmux new -As0'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+git config --global core.editor "vim"
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/milo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/milo/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/milo/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/milo/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+conda activate
+# <<< conda initialize <<<
 
