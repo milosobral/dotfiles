@@ -847,8 +847,9 @@ require('lazy').setup({
   {
     'Exafunction/codeium.vim',
     config = function()
+      vim.g.codeium_disable_bindings = 1
       -- Change '<C-g>' here to any keycode you like.
-      vim.keymap.set('i', '<C-y>', function()
+      vim.keymap.set('i', '<C-f>', function()
         return vim.fn['codeium#Accept']()
       end, { expr = true, silent = true })
       vim.keymap.set('i', '<c-;>', function()
