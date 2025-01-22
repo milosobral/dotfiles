@@ -75,6 +75,7 @@ alias ls='ls --color'
 alias c='clear'
 alias ll='ls -color -l'
 alias vim='nvim'
+alias gitree='git log --graph --oneline --color --all --decorate'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 git config --global core.editor "vim"
